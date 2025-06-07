@@ -1,73 +1,134 @@
-# Welcome to your Lovable project
+# Job Finder Application
 
-## Project info
+A full-stack web application that helps users find and track job opportunities, with a special focus on actuarial positions. The application features automated job scraping, a modern React frontend, and a robust Flask backend.
 
-**URL**: https://lovable.dev/projects/3e99b71b-4f34-4d9a-81a4-57ee7e96e556
+## Features
 
-## How can I edit this code?
+- 🔍 Automated job scraping from actuarylist.com
+- 💼 Job listing management and tracking
+- 🎯 Modern, responsive user interface
+- 🔄 Real-time job updates
+- 🏷️ Job categorization and tagging
+- 📍 Location-based job filtering
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+### Frontend
+- React with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- shadcn/ui for UI components
+- Modern responsive design
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3e99b71b-4f34-4d9a-81a4-57ee7e96e556) and start prompting.
+### Backend
+- Flask (Python)
+- PostgreSQL with Neon database
+- Playwright for web scraping
+- SQLAlchemy ORM
+- RESTful API architecture
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js & npm - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Python 3.8+ - [Download Python](https://www.python.org/downloads/)
+- PostgreSQL database (or Neon.tech account)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd JobFinderApp
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Set up the frontend:
+```bash
+# Install frontend dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. Set up the backend:
+```bash
+# Navigate to backend directory
+cd backend
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-**Use GitHub Codespaces**
+# Install dependencies
+pip install -r requirements.txt
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Install Playwright (for job scraping)
+playwright install
 
-## What technologies are used for this project?
+# Start the Flask server
+python app.py
+```
 
-This project is built with:
+4. Set up the database:
+- Create a PostgreSQL database
+- Update the database connection string in your environment variables
+- The schema will be automatically created on first run
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Job Scraping
 
-## How can I deploy this project?
+The application includes an automated job scraper for actuarylist.com. To run the scraper:
 
-Simply open [Lovable](https://lovable.dev/projects/3e99b71b-4f34-4d9a-81a4-57ee7e96e556) and click on Share -> Publish.
+```bash
+cd backend
+python scrape_actuary.py
+```
 
-## Can I connect a custom domain to my Lovable project?
+This will populate your database with the latest job listings.
 
-Yes, you can!
+## Environment Variables
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Create a `.env` file in the backend directory with the following variables:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```
+DATABASE_URL=your_database_connection_string
+FLASK_SECRET_KEY=your_secret_key
+```
+
+## Development
+
+- Frontend runs on `http://localhost:5173` by default
+- Backend API runs on `http://localhost:5000`
+- Use `npm run build` to create a production build
+- Use `npm run lint` to run ESLint
+- Use `npm run type-check` to check TypeScript types
+
+## API Endpoints
+
+The backend provides the following RESTful endpoints:
+
+- `GET /api/jobs` - List all jobs
+- `GET /api/jobs/<id>` - Get specific job details
+- `POST /api/jobs` - Create a new job listing
+- `PUT /api/jobs/<id>` - Update a job listing
+- `DELETE /api/jobs/<id>` - Delete a job listing
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [actuarylist.com](https://www.actuarylist.com/) for job listing data
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
+- [Playwright](https://playwright.dev/) for reliable web scraping
+- [Flask](https://flask.palletsprojects.com/) for the backend framework
