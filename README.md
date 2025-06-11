@@ -1,3 +1,6 @@
+# The link of the Loom video is as below
+https://www.loom.com/share/adf8f8d8112a45808c1d3497789629be?sid=09f8c403-0e25-4381-8e4b-73468ec0eebe
+
 # Job Finder Application
 
 A full-stack web application that helps users find and track job opportunities, with a special focus on actuarial positions. The application features automated job scraping, a modern React frontend, and a robust Flask backend.
